@@ -1,0 +1,28 @@
+.headers {
+  width: 100%;
+  background-color: #4ea73f;
+  display: flex;
+  justify-content: space-between;
+  min-height: 75px;
+  align-items: center;
+  padding: 0 54px;
+  grid-area: header;
+  .ContainersImgHeader {
+  }
+  .containerUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .imgProfile {
+      margin: 0 16px;
+    }
+    .textUser{
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: left;
+      color: white;
+    }
+
+  }
+}

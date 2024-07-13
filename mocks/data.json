@@ -1,0 +1,30 @@
+[
+    {
+        "data": "01/07/2024",
+        "produto": "Produto A",
+        "status": "ativo",
+        "vendas": 150,
+        "valor": 29.99
+    },
+    {
+        "data": "15/06/2024",
+        "produto": "Produto B",
+        "status": "expirado",
+        "vendas": 75,
+        "valor": 19.99
+    },
+    {
+        "data": "30/05/2024",
+        "produto": "Produto C",
+        "status": "pausado",
+        "vendas": 50,
+        "valor": 9.99
+    },
+    {
+        "data": "10/07/2024",
+        "produto": "Produto D",
+        "status": "ativo",
+        "vendas": 200,
+        "valor": 39.99
+    }
+]

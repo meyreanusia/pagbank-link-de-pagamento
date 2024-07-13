@@ -1,0 +1,60 @@
+:root {
+  font-size: 62.5%;
+  --foreground-rgb: 0, 0, 0;
+  --background-start: #F2F2F2;
+  --background-second: #FFFFFF;
+
+  --primary-color: #4EA73F;
+
+  --secondary-color: #1082BE
+
+  --text-color-primary: #333333;
+  --text-color-second:#666666;
+  --text-color-white: #1B1E20;
+
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  
+}
+.container{
+  display: grid;
+  grid-template-columns: 0.8fr 2fr; 
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "navbar content";
+  
+}
+.content{
+  grid-area: content;
+  background-color: rgb(242, 242, 242);
+  padding: 32px 50px 32px 20px;
+}
+
+/* body {
+  grid-template-columns: 200px 1fr; 
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header header"
+    "navbar content"
+    "footer footer";
+  height: 100vh;
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main{
+  padding: 20px 50px 20px 32px;
+}
