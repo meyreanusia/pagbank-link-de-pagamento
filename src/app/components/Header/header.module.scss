@@ -3,9 +3,9 @@
   background-color: #4ea73f;
   display: flex;
   justify-content: space-between;
-  min-height: 75px;
+  height: 7.5rem;
   align-items: center;
-  padding: 0 54px;
+  padding: 0 5.4rem;
   grid-area: header;
   .ContainersImgHeader {
   }
@@ -14,12 +14,12 @@
     align-items: center;
     justify-content: center;
     .imgProfile {
-      margin: 0 16px;
+      margin: 0 1.6rem;
     }
     .textUser{
-      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: 400;
-      line-height: 14px;
+      line-height: 1.4rem;
       text-align: left;
       color: white;
     }
