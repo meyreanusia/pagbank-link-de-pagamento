@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import ButtonSecondary from "../ButtonSecondary";
 import ButtonPrimary from "../ButtonSecondary";
 import styles from "./LinksDePagamento.module.scss";
@@ -25,7 +26,7 @@ export default function LinksDePagamento() {
   );
 }
 
-function TableRow({ data, produto, status, valor, vendas }) {
+function TableRow({ data, produto, status, valor, vendas, id }) {
 
   let statusIcon;
   switch (status) {
@@ -48,7 +49,7 @@ function TableRow({ data, produto, status, valor, vendas }) {
 
       <div className={`${styles.tabelcell} ${styles.servicos}`}>
 
-        <div className={styles.nomeProduto}>{produto}</div>
+        <div className={styles.nomeProduto}><Link href={`page/detalhesProduto/${id}`} >{produto}</Link></div>
       </div>
       <div className={`${styles.tabelcell} ${styles.status}`}>
         <img src={statusIcon} alt={`Ícone ${status}`} />

@@ -3,7 +3,7 @@ import styles from "./criarLinkPagamento.module.scss";
 
 export default function CriarLinkPagamento() {
   return (
-    <Link href="/novoLink/inicio/">
+    <Link href="/page/novoLink/">
        <div className={styles.containerCriarLinkPagamento}>
         <div>
           <img src="/img/more.svg" alt="Criar novo Link de Pagamento" />
