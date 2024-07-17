@@ -1,26 +1,41 @@
 "use client";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Title from "app/components/Title";
 import styles from "./inicio.module.scss";
 import { useRouter } from "next/navigation";
-import { NumericFormat } from 'react-number-format';
+import { NumericFormat } from "react-number-format";
+import { addProduct } from "app/store/reducers/products";
+import { v4 as uuidv4 } from 'uuid';
+
 export default function Inicio() {
+  const dispatch = useDispatch();
   const router = useRouter();
-  const [produto, setProduto] = useState("")
+  const [produto, setProduto] = useState("");
   const [valor, setValor] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
-
   const handleCancel = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     router.push("/");
   };
 
-  const hanleContinue = (event) => {
-    event.preventDefault();
-    console.log(event.target);
+  const handleContinue = (event) => {
+      event.preventDefault();
+    // Criar um novo produto
+    const novoProduto = {
+      data: new Date().toLocaleDateString("pt-BR"),
+      produto: produto,
+      status: "ativo",
+      vendas: 0,
+      valor: parseFloat(
+        valor.replace("R$ ", "").replace(".", "").replace(",", ".")
+      ), // Transformando o valor em número
+      id: uuidv4(),
+    };
+    dispatch(addProduct(novoProduto));
+    router.push("/");
   };
-  
-  
+
   return (
     <div className={styles.main}>
       <Title title="Criar Link de Pagamento" />
@@ -28,30 +43,34 @@ export default function Inicio() {
         <div className={styles.novoLinkContainer}>
           <div className={styles.inputContainer}>
             <label htmlFor="produto">O que vocês está vendendo?</label>
-            <input type="text" placeholder="Produto ou serviço" id="produto" onChange={(e) => setProduto(e) }/>
+            <input
+              type="text"
+              placeholder="Produto ou serviço"
+              id="produto"
+              onChange={(e) => setProduto(e.target.value)}
+            />
             {errorMessages.produto && (
               <span className={styles.error}>{errorMessages.produto}</span>
             )}
           </div>
           <div className={styles.inputContainer}>
             <label htmlFor="valor">Qual o valor?</label>
-            <NumericFormat 
-             thousandSeparator="."
-             decimalSeparator=","
-             prefix="R$ "
-             value={valor}
-             onValueChange={(values) => {
-               const { formattedValue, value } = values;
-               setValor(formattedValue);
-               
-             }}
-             placeholder="R$ 0,00"
-             id="valor"
-             className={styles.input} />
-             {errorMessages.valor && (
+            <NumericFormat
+              thousandSeparator="."
+              decimalSeparator=","
+              prefix="R$ "
+              value={valor}
+              onValueChange={(values) => {
+                const { formattedValue, value } = values;
+                setValor(formattedValue);
+              }}
+              placeholder="R$ 0,00"
+              id="valor"
+              className={styles.input}
+            />
+            {errorMessages.valor && (
               <span className={styles.error}>{errorMessages.valor}</span>
             )}
-
           </div>
         </div>
 
@@ -62,7 +81,7 @@ export default function Inicio() {
           <button
             className={styles.bttCriarLink}
             type="submit"
-            onClick={hanleContinue}
+            onClick={handleContinue}
           >
             Criar Link
           </button>

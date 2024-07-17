@@ -25,9 +25,7 @@ export default function LinksDePagamento() {
   );
 }
 
-function TableRow({ data, produto, status, valor, vendas, src }) {
-  const produtoFirstLetter = produto.charAt(0).toUpperCase();
-  const imgProduto = src ? src : null;
+function TableRow({ data, produto, status, valor, vendas }) {
 
   let statusIcon;
   switch (status) {
@@ -49,15 +47,7 @@ function TableRow({ data, produto, status, valor, vendas, src }) {
       <div className={styles.tabelcell}>{data}</div>
 
       <div className={`${styles.tabelcell} ${styles.servicos}`}>
-        {/* <div>
-          {imgProduto ? (
-              <img src={imgProduto} alt={`Icone ${produto}`} />
-          ) : (
-            <div className={`${styles.statusLetter} ${styles.imgContainer}`}>
-              {produtoFirstLetter}
-            </div>
-          )}
-        </div> */}
+
         <div className={styles.nomeProduto}>{produto}</div>
       </div>
       <div className={`${styles.tabelcell} ${styles.status}`}>
