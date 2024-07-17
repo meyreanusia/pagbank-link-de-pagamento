@@ -1,10 +1,11 @@
+"use client";
 import React from "react";
 import styles from "./header.module.scss";
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <headers className={styles.headers}>
+    <header className={styles.headers}>
       <section className={styles.ContainersImgHeader}>
         <Link href="/">
           <img src="/img/logo.svg" alt="" />
@@ -20,6 +21,6 @@ export default function Header() {
           <small className={styles.textUser}>manusia@uolinc.com</small>
         </div>
       </section>
-    </headers>
+    </header>
   );
 }
