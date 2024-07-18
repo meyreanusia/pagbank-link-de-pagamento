@@ -62,7 +62,18 @@
       .opcoes {
         width: 5%;
       }
-     
+      .status 
+      
+      div{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 0.3rem;
+      }
+      .icon{
+        width: 1rem;
+      }
+
     }
   }
 }

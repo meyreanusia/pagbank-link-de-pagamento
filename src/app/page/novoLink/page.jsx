@@ -6,7 +6,7 @@ import styles from "./inicio.module.scss";
 import { useRouter } from "next/navigation";
 import { NumericFormat } from "react-number-format";
 import { addProduct } from "app/store/reducers/products";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 export default function Inicio() {
   const dispatch = useDispatch();
@@ -19,21 +19,36 @@ export default function Inicio() {
     router.push("/");
   };
 
+  const hasError = (produto, valor) => {
+    let errors = {};
+    if (produto === "") {
+      errors.produto = "O nome do produto é obrigatório";
+    }
+    if (valor === "") {
+      errors.valor = "O valor do produto é obrigatório";
+    }
+
+    setErrorMessages(errors);
+    return Object.keys(errors).length > 0;
+  };
+
   const handleContinue = (event) => {
-      event.preventDefault();
-    // Criar um novo produto
-    const novoProduto = {
-      data: new Date().toLocaleDateString("pt-BR"),
-      produto: produto,
-      status: "ativo",
-      vendas: 0,
-      valor: parseFloat(
-        valor.replace("R$ ", "").replace(".", "").replace(",", ".")
-      ), // Transformando o valor em número
-      id: uuidv4(),
-    };
-    dispatch(addProduct(novoProduto));
-    router.push("/");
+    event.preventDefault();
+    if (!hasError(produto, valor)) {
+      // Criar um novo produto
+      const novoProduto = {
+        data: new Date().toLocaleDateString("pt-BR"),
+        produto: produto,
+        status: "ativo",
+        vendas: 0,
+        valor: parseFloat(
+          valor.replace("R$ ", "").replace(".", "").replace(",", ".")
+        ), // Transformando o valor em número
+        id: uuidv4(),
+      };
+      dispatch(addProduct(novoProduto));
+      router.push("/");
+    }
   };
 
   return (
@@ -49,9 +64,11 @@ export default function Inicio() {
               id="produto"
               onChange={(e) => setProduto(e.target.value)}
             />
-            {errorMessages.produto && (
-              <span className={styles.error}>{errorMessages.produto}</span>
-            )}
+            <div className={styles.errorsContainer}>
+              {errorMessages.produto && (
+                <span className={styles.error}>{errorMessages.produto}</span>
+              )}
+            </div>
           </div>
           <div className={styles.inputContainer}>
             <label htmlFor="valor">Qual o valor?</label>
@@ -68,9 +85,14 @@ export default function Inicio() {
               id="valor"
               className={styles.input}
             />
-            {errorMessages.valor && (
-              <span className={styles.error}>{errorMessages.valor}</span>
-            )}
+
+            <div className={styles.errorsContainer}>
+              <section></section>
+
+              {errorMessages.valor && (
+                <span className={styles.error}>{errorMessages.valor}</span>
+              )}
+            </div>
           </div>
         </div>
 
