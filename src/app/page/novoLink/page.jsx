@@ -27,6 +27,9 @@ export default function Inicio() {
     if (valor === "") {
       errors.valor = "O valor do produto é obrigatório";
     }
+    else if(parseFloat(valor.replace("R$", "").replace(",", ".")) < 5){
+      errors.valor = "O valor precisa ser maior que R$ 5,00"
+    }
 
     setErrorMessages(errors);
     return Object.keys(errors).length > 0;
