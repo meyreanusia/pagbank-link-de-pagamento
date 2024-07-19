@@ -1,14 +1,25 @@
 import ButtonPrimary from "../ButtonPrimary";
 import styles from "./FiltrosLinksPagamentos.module.scss";
 export default function FiltrosLinksPagamentos({ setFilter }) {
+
   const handleFilter = (event) => {
-    setFilter(event.target.value)
+    setFilter((prev) => ({...prev,
+      status: event.target.value
+    }))
   };
+
+  const handleSearch = (event) => {
+    setFilter((prev) => ({
+      ... prev,
+      search:event.target.value}))
+
+  }
+  
 
   return (
     <div className={styles.filtrosContainer}>
       <div className={styles.inputContainer}>
-        <input type="text" placeholder="Buscar" id={styles.inputbusca} />
+        <input type="text" placeholder="Buscar" id={styles.inputbusca} onChange={handleSearch} />
       </div>
 
       <div className={styles.selectcontainer}>

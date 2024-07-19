@@ -7,8 +7,14 @@ import { useSelector } from "react-redux";
 import products from "app/store/reducers/products";
 
 export default function LinksDePagamentos({filter}) {
+  console.log(filter);
   const Products = useSelector((store) => store.products);
-  const filterProducts = filter === "todos"? Products : Products.filter((product) => product.status === filter)
+
+  const filteredProducts = Products.filter((product) => {
+    const matchesStatus = filter.status === "todos" || product.status === filter.status;
+    const matchesSearch = product.produto.toLowerCase().includes(filter.search.toLowerCase());
+    return matchesStatus && matchesSearch;
+  });
   
   return (
     <div className={styles.tableContainer}>
@@ -22,8 +28,8 @@ export default function LinksDePagamentos({filter}) {
       </section>
 
       <section className={styles.tableRowGroup}>
-        {filterProducts &&
-          filterProducts.map((item, index) => <TableRow key={index} {...item} />)}
+        {filteredProducts &&
+          filteredProducts.map((item, index) => <TableRow key={index} {...item} />)}
       </section>
     </div>
   );

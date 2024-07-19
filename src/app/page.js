@@ -7,7 +7,7 @@ import Title from "./components/Title";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [filter, setFilter] = useState("todos");
+  const [filter, setFilter] = useState({status:"todos", search: ""});
 
   
   return (
