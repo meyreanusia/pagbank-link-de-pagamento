@@ -4,7 +4,7 @@ import products from "app/store/reducers/products";
 import store from "app/store/store";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-
+import styles from './detalhes.module.scss'
 export default function detalhesProduto({ params }) {
   const { id } = params;
   const products = useSelector((store) => store.products);
@@ -14,14 +14,14 @@ export default function detalhesProduto({ params }) {
     return <>Produto não encontrado</>;
   }
   return (
-    <div>
+    <div className={styles.containerProductDetails}> 
       <Title title={"Detalhes do link de pagamento"} />
       <div className="nav-detalhes-produto"></div>
-      <section className="detalhes">
+      <section className={styles.detalhes}>
         <h2>Produto</h2>
         <dd>
-          <h3>{product.produto}</h3>
-          <dt>{product.valor}</dt>
+          <h3 className={styles.produto}>{product.produto}</h3>
+          <dt className={styles.valor}>R$ {product.valor}</dt>
         </dd>
         <dd>
           <h3>Status do link</h3>
