@@ -4,9 +4,12 @@ import ButtonSecondary from "../ButtonSecondary";
 import ButtonPrimary from "../ButtonSecondary";
 import styles from "./LinksDePagamentos.module.scss";
 import { useSelector } from "react-redux";
+import products from "app/store/reducers/products";
 
-export default function LinksDePagamentos() {
+export default function LinksDePagamentos({filter}) {
   const Products = useSelector((store) => store.products);
+  const filterProducts = filter === "todos"? Products : Products.filter((product) => product.status === filter)
+  
   return (
     <div className={styles.tableContainer}>
       <section className={styles.tableHeader}>
@@ -19,8 +22,8 @@ export default function LinksDePagamentos() {
       </section>
 
       <section className={styles.tableRowGroup}>
-        {Products &&
-          Products.map((item, index) => <TableRow key={index} {...item} />)}
+        {filterProducts &&
+          filterProducts.map((item, index) => <TableRow key={index} {...item} />)}
       </section>
     </div>
   );
@@ -57,7 +60,7 @@ function TableRow({ data, produto, status, valor, vendas, id }) {
        
       </div>
       <div className={`${styles.tabelcell} ${styles.vendas}`}><div>{`${vendas} unid.`}</div></div>
-      <div className={styles.tabelcell}>{valor}</div>
+      <div className={styles.tabelcell}>R$ {valor}</div>
       <div className={`${styles.tabelcell} ${styles.opcoes}`}>
         <ButtonSecondary />
       </div>
