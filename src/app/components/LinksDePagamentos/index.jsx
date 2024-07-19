@@ -1,21 +1,23 @@
 "use client";
 import Link from "next/link";
 import ButtonSecondary from "../ButtonSecondary";
-import ButtonPrimary from "../ButtonSecondary";
+// import ButtonPrimary from "../ButtonSecondary";
 import styles from "./LinksDePagamentos.module.scss";
 import { useSelector } from "react-redux";
-import products from "app/store/reducers/products";
+// import products from "app/store/reducers/products";
 
-export default function LinksDePagamentos({filter}) {
-  console.log(filter);
+export default function LinksDePagamentos({ filter }) {
   const Products = useSelector((store) => store.products);
 
   const filteredProducts = Products.filter((product) => {
-    const matchesStatus = filter.status === "todos" || product.status === filter.status;
-    const matchesSearch = product.produto.toLowerCase().includes(filter.search.toLowerCase());
-    return matchesStatus && matchesSearch;
+    const status =
+      filter.status === "todos" || product.status === filter.status;
+    const search = product.produto
+      .toLowerCase()
+      .includes(filter.search.toLowerCase());
+    return status && search;
   });
-  
+
   return (
     <div className={styles.tableContainer}>
       <section className={styles.tableHeader}>
@@ -29,14 +31,15 @@ export default function LinksDePagamentos({filter}) {
 
       <section className={styles.tableRowGroup}>
         {filteredProducts &&
-          filteredProducts.map((item, index) => <TableRow key={index} {...item} />)}
+          filteredProducts.map((item, index) => (
+            <TableRow key={index} {...item} />
+          ))}
       </section>
     </div>
   );
 }
 
 function TableRow({ data, produto, status, valor, vendas, id }) {
-
   let statusIcon;
   switch (status) {
     case "ativo":
@@ -57,15 +60,24 @@ function TableRow({ data, produto, status, valor, vendas, id }) {
       <div className={styles.tabelcell}>{data}</div>
 
       <div className={`${styles.tabelcell} ${styles.servicos}`}>
-
-        <div className={styles.nomeProduto}><Link href={`page/link-de-pagamento/detalhes/${id}`} >{produto}</Link></div>
+        <div className={styles.nomeProduto}>
+          <Link href={`page/link-de-pagamento/detalhes/${id}`}>{produto}</Link>
+        </div>
       </div>
       <div className={`${styles.tabelcell} ${styles.status}`}>
-        <div> <img  className={styles.icon} src={statusIcon} alt={`Ícone ${status}`} />
-        {status}</div>
-       
+        <div>
+          {" "}
+          <img
+            className={styles.icon}
+            src={statusIcon}
+            alt={`Ícone ${status}`}
+          />
+          {status}
+        </div>
       </div>
-      <div className={`${styles.tabelcell} ${styles.vendas}`}><div>{`${vendas} unid.`}</div></div>
+      <div className={`${styles.tabelcell} ${styles.vendas}`}>
+        <div>{`${vendas} unid.`}</div>
+      </div>
       <div className={styles.tabelcell}>R$ {valor}</div>
       <div className={`${styles.tabelcell} ${styles.opcoes}`}>
         <ButtonSecondary />

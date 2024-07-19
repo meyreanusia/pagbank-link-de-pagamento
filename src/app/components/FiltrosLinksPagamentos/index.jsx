@@ -1,25 +1,33 @@
-import ButtonPrimary from "../ButtonPrimary";
+import { useState } from "react";
 import styles from "./FiltrosLinksPagamentos.module.scss";
 export default function FiltrosLinksPagamentos({ setFilter }) {
+  const [filterSelect, setFilterSelect] = useState("todos");
 
   const handleFilter = (event) => {
-    setFilter((prev) => ({...prev,
-      status: event.target.value
-    }))
+    setFilterSelect(event.target.value);
   };
 
   const handleSearch = (event) => {
     setFilter((prev) => ({
-      ... prev,
-      search:event.target.value}))
+      ...prev,
+      search: event.target.value,
+    }));
+  };
+
+  const filterApply = () => {
+    setFilter((prev) => ({ ...prev, status: filterSelect }));
 
   }
-  
 
   return (
     <div className={styles.filtrosContainer}>
       <div className={styles.inputContainer}>
-        <input type="text" placeholder="Buscar" id={styles.inputbusca} onChange={handleSearch} />
+        <input
+          type="text"
+          placeholder="Buscar"
+          id={styles.inputbusca}
+          onChange={handleSearch}
+        />
       </div>
 
       <div className={styles.selectcontainer}>
@@ -36,8 +44,17 @@ export default function FiltrosLinksPagamentos({ setFilter }) {
       </div>
 
       <div className={styles.bttContainer}>
-        <ButtonPrimary text="Filtrar" />
+        <ButtonPrimary text="Filtrar"  filterApply={filterApply}/>
       </div>
     </div>
   );
+}
+
+
+// import styles from './ButtonPrimary.module.scss'
+
+export  function ButtonPrimary({text, filterApply}){
+    return(
+        <button className={styles.bttprimary} onClick={filterApply}>{text}</button>
+    )
 }
