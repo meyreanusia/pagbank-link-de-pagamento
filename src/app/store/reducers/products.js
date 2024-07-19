@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-// import data from "../../../../mocks/data.json";
 
 let data = [
   {
@@ -37,7 +36,7 @@ let data = [
   },
 ];
 
-const dataFromStage = localStorage.getItem("links-payments");
+const dataFromStage =  localStorage.getItem("links-payments");
 if (!dataFromStage) {
   localStorage.setItem("links-payments", JSON.stringify(data));
 }
@@ -48,7 +47,6 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      // console.log(JSON.stringify(state, null, 2));
       const newProduct = {
         data: action.payload.data,
         id: action.payload.id,

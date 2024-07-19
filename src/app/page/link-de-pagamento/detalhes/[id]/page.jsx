@@ -19,18 +19,16 @@ export default function detalhesProduto({ params }) {
       <div className="nav-detalhes-produto"></div>
       <section className={styles.detalhes}>
         <h2>Produto</h2>
-        <dd>
-          <h3 className={styles.produto}>{product.produto}</h3>
-          <dt className={styles.valor}>R$ {product.valor}</dt>
-        </dd>
-        <dd>
-          <h3>Status do link</h3>
-          <dt>{product.status}</dt>
-        </dd>
-        <dd>
-          <h3>Data de Criação</h3>
-          <dt>Data: {product.data}</dt>
-        </dd>
+        <dl>
+          <dt>Nome</dt>
+          <dd className={styles.produto}>{product.produto}</dd>
+          <dt>Valor</dt>
+          <dd className={styles.valor}>R$ {product.valor}</dd>
+          <dt>Status do link</dt>
+          <dd>{product.status}</dd>
+          <dt>Data de Criação</dt>
+          <dd>Data: {product.data}</dd>
+        </dl>
       </section>
     </div>
   );

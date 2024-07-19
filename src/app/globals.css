@@ -11,13 +11,14 @@
   --text-color-primary: #333333;
   --text-color-second:#666666;
   --text-color-white: #1B1E20;
-
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 html,
@@ -39,16 +40,6 @@ body {
   background-color: rgb(242, 242, 242);
   padding: 32px 50px 32px 20px;
 }
-
-/* body {
-  grid-template-columns: 200px 1fr; 
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: 
-    "header header"
-    "navbar content"
-    "footer footer";
-  height: 100vh;
-} */
 
 a {
   color: inherit;

@@ -1,15 +1,13 @@
 "use client";
 import Link from "next/link";
 import ButtonSecondary from "../ButtonSecondary";
-// import ButtonPrimary from "../ButtonSecondary";
 import styles from "./LinksDePagamentos.module.scss";
 import { useSelector } from "react-redux";
-// import products from "app/store/reducers/products";
 
 export default function LinksDePagamentos({ filter }) {
   const Products = useSelector((store) => store.products);
 
-  const filteredProducts = Products.filter((product) => {
+  const filteredProducts = Products?.filter((product) => {
     const status =
       filter.status === "todos" || product.status === filter.status;
     const search = product.produto

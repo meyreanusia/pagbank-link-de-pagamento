@@ -50,9 +50,6 @@ export default function FiltrosLinksPagamentos({ setFilter }) {
   );
 }
 
-
-// import styles from './ButtonPrimary.module.scss'
-
 export  function ButtonPrimary({text, filterApply}){
     return(
         <button className={styles.bttprimary} onClick={filterApply}>{text}</button>

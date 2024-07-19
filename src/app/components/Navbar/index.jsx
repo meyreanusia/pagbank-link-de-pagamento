@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
 import styles from "./menu.module.scss";
+import Link from "next/link";
 
 
 export default function Navbar() {
   const [selectedButton, setSelectedButton] = useState("/")
 
   const changeBackgroundBtt = (event, to) => {
-    // event.preventDefault();
     setSelectedButton(to);
   }
 
@@ -63,10 +63,10 @@ const Nav = ({ title, children }) => (
 
 const NavItem = ({ to, text, src, onclick, isSelected}) => (
   <li className={styles.navItem}>
-    <a href={to} className={styles.link} onClick={onclick}
+    <Link href={to} className={styles.link} onClick={onclick}
      style={{ backgroundColor: isSelected ? "#F3F4F5" : "none" }} >
       <img src={src} alt={src} className={styles.icon} />
       {text}
-    </a>
+    </Link>
   </li>
 );
