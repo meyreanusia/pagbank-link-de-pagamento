@@ -1,11 +1,10 @@
 "use client";
 import Title from "app/components/Title";
-import products from "app/store/reducers/products";
-import store from "app/store/store";
-import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import styles from './detalhes.module.scss'
+import styles from './detalhes.module.scss';
+import NavBarDetalhes from "app/components/NavBarDetalhesProduto";
 export default function detalhesProduto({ params }) {
+  
   const { id } = params;
   const products = useSelector((store) => store.products);
   const product = products.find((products) => products.id === id);
@@ -16,6 +15,7 @@ export default function detalhesProduto({ params }) {
   return (
     <div className={styles.containerProductDetails}> 
       <Title title={"Detalhes do link de pagamento"} />
+      <NavBarDetalhes id={id}/>
       <div className="nav-detalhes-produto"></div>
       <section className={styles.detalhes}>
         <h2>Produto</h2>
@@ -33,3 +33,5 @@ export default function detalhesProduto({ params }) {
     </div>
   );
 }
+
+

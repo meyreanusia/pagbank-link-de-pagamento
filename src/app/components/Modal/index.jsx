@@ -2,7 +2,6 @@
 import styles from "./Modal.module.scss";
 import Link from "next/link";
 export default function Modal({ onClose, product, position }) {
-  console.log(position);
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -15,7 +14,7 @@ export default function Modal({ onClose, product, position }) {
     case "ativo":
       links = (
         <div className={styles.link}>
-          <Link href={`page/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
+          <Link href={`/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
           <Link href={''}>Pausar</Link>
           <Link href={''}>Excluir</Link>
         </div>
@@ -24,7 +23,7 @@ export default function Modal({ onClose, product, position }) {
     case "pausado":
       links = (
         <div className={styles.link}>
-          <Link href={`page/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
+          <Link href={`/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
           <Link href={''}>Reiniciar vendas</Link>
           <Link href={''}>Excluir</Link>
         </div>
@@ -33,7 +32,7 @@ export default function Modal({ onClose, product, position }) {
     case "expirado":
       links = (
         <div className={styles.link}>
-          <Link href={`page/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
+          <Link href={`/link-de-pagamento/detalhes/${product.id}`}>Ir para detalhes</Link>
           <Link href={''}>Excluir</Link>
         </div>
       );
@@ -42,8 +41,8 @@ export default function Modal({ onClose, product, position }) {
       links = null;
   }
   return (
-    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-      <div className={styles.modalContent} style={{ top: `${position.top}px`, left: `${position.left}px` }}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick} style={ {position: 'fixed'}}>
+      <div className={styles.modalContent} style={{  position: 'fixed', top: `${position.top}px`, left: `${position.left}px` }}>
         {links}       
       </div>
     </div>

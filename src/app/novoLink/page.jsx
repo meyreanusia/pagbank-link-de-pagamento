@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { NumericFormat } from "react-number-format";
 import { addProduct } from "app/store/reducers/products";
 import { v4 as uuidv4 } from "uuid";
+import Link from "next/link";
 
 export default function Inicio() {
   const dispatch = useDispatch();
@@ -26,9 +27,8 @@ export default function Inicio() {
     }
     if (valor === "") {
       errors.valor = "O valor do produto é obrigatório";
-    }
-    else if(parseFloat(valor.replace("R$", "").replace(",", ".")) < 5){
-      errors.valor = "O valor precisa ser maior que R$ 5,00"
+    } else if (parseFloat(valor.replace("R$", "").replace(",", ".")) < 5) {
+      errors.valor = "O valor precisa ser maior que R$ 5,00";
     }
 
     setErrorMessages(errors);
@@ -115,3 +115,5 @@ export default function Inicio() {
     </div>
   );
 }
+
+
