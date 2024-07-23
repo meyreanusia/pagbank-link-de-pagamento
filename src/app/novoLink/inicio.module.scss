@@ -1,6 +1,5 @@
 .main {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -12,6 +11,7 @@
   gap: 2.4rem;
 }
 .novoLinkContainer {
+  box-sizing: content-box;
   min-height: 50%;
   display: grid;
   align-items: center;
@@ -26,12 +26,15 @@
 }
 
 .inputContainer {
+  width: 100%;
   height: 90%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
   label {
+    width: 100%;
+
     margin-bottom: 0.8rem;
 
     font-size: 1.6rem;
@@ -40,6 +43,7 @@
     text-align: left;
   }
   input {
+    width: 100%;
     height: 3.4rem;
     padding: 1.6rem 1.4rem;
 
@@ -61,7 +65,7 @@
 
 .bttContainer {
   width: 100%;
-  height: 12%;
+  height: 18%;
   display: flex;
   justify-content: center;
   gap: 2.4rem;
@@ -76,7 +80,7 @@
     padding: 1.4rem 2.4rem;
     text-align: center;
     cursor: pointer;
-    width: 15%;
+    width: 20%;
   }
   .bttCancelar {
     border: 1px solid #0078ad;
@@ -86,4 +90,37 @@
     background-color: #1082be;
     color: #ffffff;
   }
+}
+
+@media (max-width: 767px) {
+  .formNovoLink {
+    height: 50%;
+  }
+  .novoLinkContainer {
+    padding: 1.6rem 2.4rem;
+
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .bttContainer {
+    flex-direction: column;
+    margin-top: 3rem;
+
+    button {
+      width: 100%;
+    }
+  }
+  .inputContainer {
+    input {
+      height: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    height: 100vh;
+
+  }
+
 }

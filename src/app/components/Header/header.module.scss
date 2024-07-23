@@ -16,13 +16,32 @@
     .imgProfile {
       margin: 0 1.6rem;
     }
-    .textUser{
+    .textUser {
       font-size: 1.4rem;
       font-weight: 400;
       line-height: 1.4rem;
       text-align: left;
       color: white;
     }
+  }
+}
 
+@media (max-width: 767px) {
+  .headers {
+    padding: 0 2rem;
+    .containerUser {
+      .imgProfile {
+        margin: 0 0 0 1.6rem;
+      }
+      .textUser {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    display: none;
   }
 }

@@ -49,3 +49,21 @@ a {
 .main{
   padding: 20px 50px 20px 32px;
 }
+
+
+/* Media query para mobile e tablet  */
+@media (max-width: 1024px) {
+  .container {
+    display: flex;
+   
+  }
+
+  .content {
+    width: 100%;
+    padding: 3.2rem 2rem; 
+  }
+
+  .navbar {
+    display: none;
+  }
+}
