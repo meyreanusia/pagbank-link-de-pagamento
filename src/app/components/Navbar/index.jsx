@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <aside className={styles.navbar}>
       <Nav>
-        <NavItem to="/" text="Página Inicial" src="/img/home.svg" />
+        <NavItem to="" text="Página Inicial" src="/img/home.svg" />
       </Nav>
       <Nav title={"MEU NEGÓCIO"}>
         <NavItem to="/" text="Vendas" src="/img/vendas.svg" onclick={changeBackgroundBtt} isSelected={selectedButton === "/"}/>
