@@ -2,9 +2,9 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 
-  .navBar{
+  .navBar {
     width: 100%;
     height: 100px;
   }
@@ -14,49 +14,91 @@
     flex-direction: column;
     padding: 3.2rem 2.4rem;
     background-color: #ffffff;
-    height: 30%;
+    height: 40%;
     box-shadow: -2px 0px 1px 0px #0000001f, 2px 0px 1px 0px #0000001f,
       1px 3px 2px 0px #0000001f;
-  
-    h2{
-      margin: 0 0 3.2rem;
+
+    h2 {
+      margin: 0 0 3rem;
       font-size: 2.4rem;
       line-height: 2.8rem;
       font-weight: 400;
       color: #333;
     }
-    dd{
-      flex: 1;
-      // margin: 1rem 0rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    h2 {
-      margin-bottom: 3.2rem;
-    }
-  
-    h3,
-    dt {
-      color: rgb(89, 89, 89);
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 2.2rem;
-    }
-    .valor {
-      font-weight: 700;
-    }
-    dt {
-      font-weight: 400;
-    }
-  
-    .produto {
-      font-weight: 400;
+
+    dl {
+      dd {
+        flex: 1;
+        margin: 0.5rem 0 1.5rem 0rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+
+      dt {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 2.2rem;
+        font-weight: 700;
+        color: #595959;
+      }
+      .valor {
+        font-weight: 700;
+        color: #595959;
+      }
+      .produto {
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        font-size: 2rem;
+        line-height: 2.2rem;
+        color: #595959;
+      }
+
+      .statusAtivo {
+        text-align: center;
+        width: 8%;
+        background-color: #cffccb;
+        border: 0;
+        border-radius: 99rem;
+
+        span {
+          color: #295921;
+          font-weight: 700;
+          height: 2rem;
+          padding: 0 0.8rem;
+          transform: uppercase;
+        }
+      }
+
+      .statusPausado {
+        text-align: center;
+        width: 12%;
+        background-color: #f9debc;
+        border-radius: 99rem;
+        span{
+          color: #442b09;
+          font-weight: 700;
+          height: 2rem;
+          padding: 0 0.8rem;
+        }
+      }
+
+      .statusExpirado {
+        text-align: center;
+        width: 12%;
+        background-color: #f9d7d7;
+        border-radius: 99rem;
+
+        span {
+          color: #442b09;
+          font-weight: 700;
+          height: 2rem;
+          padding: 0 0.8rem;
+        }
+      }
     }
   }
-  
-  
 }
-
-

@@ -3,22 +3,22 @@
   background-color: white;
   height: 5%;
   display: flex;
-  box-shadow: 0 .2rem .2rem rgba(0, 0, 0, .24);
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.24);
   section {
     padding: 1.1rem 1rem;
     display: flex;
     align-items: center;
-    width: 10%;
+    width: 13%;
     height: 100%;
     text-align: center;
-    
-    a{
+
+    a {
       color: #222;
       cursor: pointer;
       font: 400 1.4rem UOLText, Arial, "sans-serif";
     }
   }
+  .sectionSelect {
+    border-bottom: 3px solid #1bb99a;
+  }
 }
-
-
-// border-bottom: 3px solid #1bb99a;

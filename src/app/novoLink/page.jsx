@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { NumericFormat } from "react-number-format";
 import { addProduct } from "app/store/reducers/products";
 import { v4 as uuidv4 } from "uuid";
-import Link from "next/link";
 
 export default function Inicio() {
   const dispatch = useDispatch();
@@ -15,6 +14,7 @@ export default function Inicio() {
   const [produto, setProduto] = useState("");
   const [valor, setValor] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
+  
   const handleCancel = (event) => {
     event.preventDefault();
     router.push("/");
@@ -83,6 +83,10 @@ export default function Inicio() {
               onValueChange={(values) => {
                 const { formattedValue, value } = values;
                 setValor(formattedValue);
+              }}
+              isAllowed={(values) => {
+               const { floatValue } = values;
+                return floatValue === undefined || floatValue === null || floatValue >= 0;
               }}
               placeholder="R$ 0,00"
               id="valor"

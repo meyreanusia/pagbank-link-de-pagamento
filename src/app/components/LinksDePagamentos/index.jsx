@@ -24,6 +24,7 @@ export default function LinksDePagamentos({ filter }) {
     setModalPosition(position);
     setModalOpen(true);
   };
+  
   return (
     <div className={styles.tableContainer}>
       <section className={styles.tableHeader}>

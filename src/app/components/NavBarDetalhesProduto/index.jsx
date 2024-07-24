@@ -8,7 +8,7 @@ export  default function NavBarDetalhes({id}) {
         </section>
   
         <section>
-        <Link href={`/link-de-pagamento/pagamentos/${id}`}>Pagementos</Link>
+        <Link href={`/link-de-pagamento/pagamentos/${id}`}>Pagamentos</Link>
         </section>
       </div>
     );

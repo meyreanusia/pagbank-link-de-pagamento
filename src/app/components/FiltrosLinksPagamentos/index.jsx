@@ -16,8 +16,7 @@ export default function FiltrosLinksPagamentos({ setFilter }) {
 
   const filterApply = () => {
     setFilter((prev) => ({ ...prev, status: filterSelect }));
-
-  }
+  };
 
   return (
     <div className={styles.filtrosContainer}>
@@ -44,14 +43,16 @@ export default function FiltrosLinksPagamentos({ setFilter }) {
       </div>
 
       <div className={styles.bttContainer}>
-        <ButtonPrimary text="Filtrar"  filterApply={filterApply}/>
+        <ButtonPrimary text="Filtrar" filterApply={filterApply} />
       </div>
     </div>
   );
 }
 
-export  function ButtonPrimary({text, filterApply}){
-    return(
-        <button className={styles.bttprimary} onClick={filterApply}>{text}</button>
-    )
+export function ButtonPrimary({ text, filterApply }) {
+  return (
+    <button className={styles.bttprimary} onClick={filterApply}>
+      {text}
+    </button>
+  );
 }
