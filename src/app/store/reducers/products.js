@@ -18,12 +18,18 @@ const productsSlice = createSlice({
         status: action.payload.status,
         vendas: action.payload.vendas,
       };
-
       const newState = [newProduct, ...state];
       localStorage.setItem("links-payments", JSON.stringify(newState));
       return newState;
     },
+
+    deleteProduct: (state, action) => {
+      
+      const newState = state.filter(product => product.id !== action.payload);
+      localStorage.setItem("links-payments", JSON.stringify(newState));
+      return newState;
+    }
   },
 });
-export const { addProduct, setProducts } = productsSlice.actions;
+export const { addProduct, setProducts, deleteProduct } = productsSlice.actions;
 export default productsSlice.reducer;
