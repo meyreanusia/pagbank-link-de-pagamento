@@ -14,7 +14,7 @@
     flex-direction: column;
     padding: 3.2rem 2.4rem;
     background-color: #ffffff;
-    height: 40%;
+    height: 35%;
     box-shadow: -2px 0px 1px 0px #0000001f, 2px 0px 1px 0px #0000001f,
       1px 3px 2px 0px #0000001f;
 
@@ -78,7 +78,7 @@
         width: 12%;
         background-color: #f9debc;
         border-radius: 99rem;
-        span{
+        span {
           color: #442b09;
           font-weight: 700;
           height: 2rem;
@@ -99,6 +99,14 @@
           padding: 0 0.8rem;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .containerProductDetails {
+    .detalhes {
+      height: 60%;
     }
   }
 }

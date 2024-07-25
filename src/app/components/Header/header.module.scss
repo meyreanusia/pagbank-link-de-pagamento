@@ -7,8 +7,24 @@
   align-items: center;
   padding: 0 5.4rem;
   grid-area: header;
+
   .ContainersImgHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 0.3rem;
+    }
   }
+
+
   .containerUser {
     display: flex;
     align-items: center;
@@ -41,7 +57,31 @@
 }
 
 @media (max-width: 1024px) {
+  .headers{
+    padding-right: 4rem;
+    padding-left: 4rem;
+
+    .ContainersImgHeader {
+      .menuHamburguer {
+        margin: 0 1rem 0rem -3.0rem;
+      }
+    }
+  }
   .navbar {
     display: none;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .headers {
+   
+    .ContainersImgHeader {
+      .menuHamburguer {
+        display: none;
+        margin: 0 1rem 0 0;
+      }
+      .closeToggle{
+        display: none;
+      }
+    }
   }
 }

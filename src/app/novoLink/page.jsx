@@ -50,7 +50,7 @@ export default function Inicio() {
         id: uuidv4(),
       };
       dispatch(addProduct(novoProduto));
-      router.push("/");
+      router.push(`/link-de-pagamento/detalhes/${novoProduto.id}`);
     }
   };
 

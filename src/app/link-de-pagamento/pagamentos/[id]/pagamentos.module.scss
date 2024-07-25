@@ -48,3 +48,21 @@
     }
   }
 }
+
+@media screen and (max-width: 469px) {
+  .containerProductDetails {
+    .detalhes {
+      h2{
+        // font-size: 2rem;
+      }
+      .pagamentos {
+        strong{
+          font-size: 1.3rem;
+        }
+        div {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

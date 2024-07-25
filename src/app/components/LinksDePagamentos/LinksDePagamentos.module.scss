@@ -8,8 +8,6 @@
   .tableHeader {
     display: table-header-group;
     width: 100%;
-    //   background-color: aqua;
-
     div {
       display: table-cell;
       vertical-align: middle;
@@ -43,6 +41,7 @@
       .tabelcell {
         border-top: 1px solid #eaeaea;
         display: table-cell;
+        vertical-align: middle;
         flex: 1;
         font-size: 1.4rem;
         font-weight: 400;
@@ -52,13 +51,12 @@
         width: 10%;
         padding: 1.6rem 0rem;
       }
-      .nomeProduto{
-        a{
+      .nomeProduto {
+        a {
           color: #1082be;
         }
-        a:hover{
+        a:hover {
           text-decoration: underline;
-
         }
       }
       .servicos {
@@ -81,17 +79,25 @@
   }
 }
 
-.bttSecondary{
+.bttSecondary {
   background: none;
-  border: .1rem solid #e2e2e2;
+  border: 0.1rem solid #e2e2e2;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
-// @media (max-width: 767px) {
-//   .tableContainer {
-//     display: flex;
-//   }
-// }
+
+@media (max-width: 767px) {
+  .tableContainer {
+    .tableRowGroup {
+      .row {
+        .tabelcell {
+          
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
