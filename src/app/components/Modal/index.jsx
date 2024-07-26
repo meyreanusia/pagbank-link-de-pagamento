@@ -2,7 +2,7 @@
 import styles from "./Modal.module.scss";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "app/store/reducers/products";
+import { deleteProduct, resetProduct, pauseProduct } from "app/store/reducers/products";
 
 export default function Modal({ onClose, product, position }) {
   const handleOverlayClick = (e) => {
@@ -11,12 +11,22 @@ export default function Modal({ onClose, product, position }) {
     }
   };
 
-  const deleteProductClick = (event) => {
+  const deleteProductOnClick = (event) => {
     event.preventDefault();
     dispatch(deleteProduct(product.id));
     onClose();
   };
+  const pauseProductOnClick = event => {
+    event.preventDefault()
+    dispatch(pauseProduct(product.id))
+    onClose()
+  }
 
+  const resetProductOnClick = event => {
+    event.preventDefault()
+    dispatch(resetProduct(product.id))
+    onClose()
+  }
   let links;
   switch (product.status) {
     case "ativo":
@@ -25,8 +35,8 @@ export default function Modal({ onClose, product, position }) {
           <Link href={`/link-de-pagamento/detalhes/${product.id}`}>
             Ir para detalhes
           </Link>
-          <button >Pausar</button>
-          <button onClick={deleteProductClick}>Excluir</button>
+          <button  onClick={pauseProductOnClick}>Pausar</button>
+          <button onClick={deleteProductOnClick}>Excluir</button>
         </div>
       );
       break;
@@ -36,8 +46,8 @@ export default function Modal({ onClose, product, position }) {
           <Link href={`/link-de-pagamento/detalhes/${product.id}`}>
             Ir para detalhes
           </Link>
-          <button>Reiniciar vendas</button>
-          <button onClick={deleteProductClick}>Excluir</button>
+          <button onClick={resetProductOnClick}>Reiniciar vendas</button>
+          <button onClick={deleteProductOnClick}>Excluir</button>
         </div>
       );
       break;
@@ -47,7 +57,7 @@ export default function Modal({ onClose, product, position }) {
           <Link href={`/link-de-pagamento/detalhes/${product.id}`}>
             Ir para detalhes
           </Link>
-          <button onClick={deleteProductClick}>Excluir</button>
+          <button onClick={deleteProductOnClick}>Excluir</button>
         </div>
       );
       break;

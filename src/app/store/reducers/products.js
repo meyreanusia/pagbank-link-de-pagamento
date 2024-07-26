@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-let initialState= null;
+let initialState = null;
 const productsSlice = createSlice({
   name: "linksPagamentos",
   initialState,
@@ -24,12 +23,38 @@ const productsSlice = createSlice({
     },
 
     deleteProduct: (state, action) => {
-      
-      const newState = state.filter(product => product.id !== action.payload);
+      const newState = state.filter((product) => product.id !== action.payload);
+      localStorage.setItem("links-payments", JSON.stringify(newState));
+      return newState;
+    },
+    resetProduct: (state, action) => {
+      const newState = state.map((product) => {
+        if (product.id === action.payload) {
+          return {
+            ...product,
+            vendas: 0,
+            status: "ativo",
+          };
+        }
+        return product;
+      });
+      localStorage.setItem("links-payments", JSON.stringify(newState));
+      return newState;
+    },
+    pauseProduct: (state, action) => {
+      const newState = state.map(product => {
+        if (product.id === action.payload) {
+          return {
+            ...product,
+            status: "pausado"
+          };
+        }
+        return product;
+      });
       localStorage.setItem("links-payments", JSON.stringify(newState));
       return newState;
     }
   },
 });
-export const { addProduct, setProducts, deleteProduct } = productsSlice.actions;
+export const { addProduct, setProducts, deleteProduct, pauseProduct,resetProduct } = productsSlice.actions;
 export default productsSlice.reducer;

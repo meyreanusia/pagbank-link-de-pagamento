@@ -20,6 +20,8 @@ export default function Inicio() {
     router.push("/");
   };
 
+  // validação dos inputs
+
   const hasError = (produto, valor) => {
     let errors = {};
     if (produto === "") {
@@ -27,13 +29,15 @@ export default function Inicio() {
     }
     if (valor === "") {
       errors.valor = "O valor do produto é obrigatório";
-    } else if (parseFloat(valor.replace("R$", "").replace(",", ".")) < 5) {
+    } else if (parseFloat(valor.replace("R$ ", "").replace(".", "").replace(",", ".")) < 5) {
       errors.valor = "O valor precisa ser maior que R$ 5,00";
     }
 
     setErrorMessages(errors);
     return Object.keys(errors).length > 0;
   };
+
+  // Criação do novo link de pagamento
 
   const handleContinue = (event) => {
     event.preventDefault();
@@ -44,9 +48,7 @@ export default function Inicio() {
         produto: produto,
         status: "ativo",
         vendas: 0,
-        valor: parseFloat(
-          valor.replace("R$ ", "").replace(".", "").replace(",", ".")
-        ), // Transformando o valor em número
+        valor: valor.replace("R$ ", ""),
         id: uuidv4(),
       };
       dispatch(addProduct(novoProduto));

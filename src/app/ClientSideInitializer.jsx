@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { setProducts } from './store/reducers/products';
+import { setProducts } from "./store/reducers/products";
 
 let data = [
   {
@@ -40,11 +40,11 @@ let data = [
 ];
 
 export default function ClientSideInitializer() {
-  
   const dispatch = useDispatch();
 
   useEffect(() => {
     const dataFromStage = localStorage.getItem("links-payments");
+
     if (dataFromStage) {
       dispatch(setProducts(JSON.parse(dataFromStage)));
     } else {
