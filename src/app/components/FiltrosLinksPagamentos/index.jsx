@@ -1,5 +1,8 @@
+import React from "react";
 import { useState } from "react";
 import styles from "./FiltrosLinksPagamentos.module.scss";
+
+
 export default function FiltrosLinksPagamentos({ setFilter }) {
   const [filterSelect, setFilterSelect] = useState("todos");
 

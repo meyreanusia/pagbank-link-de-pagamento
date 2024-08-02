@@ -2,7 +2,6 @@
 import React from "react";
 import styles from "./header.module.scss";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Header() {
   return (
@@ -16,14 +15,14 @@ export default function Header() {
           />
         </div>
         <Link href="/">
-          <img src="/img/logo.svg" alt="" />
+          <img src="/img/logo.svg" alt="Logo PagBank" />
         </Link>
       </section>
       <section
         className={`${styles.ContainersImgHeader} ${styles.containerUser}`}
       >
-        <img src="/img/notificacao.svg" alt="" />
-        <img src="/img/profile.svg" alt="" className={styles.imgProfile} />
+        <img src="/img/notificacao.svg" alt="notificacao" />
+        <img src="/img/profile.svg" alt="logo" className={styles.imgProfile} />
         <div>
           <p className={styles.textUser}>Meyre França</p>
           <small className={styles.textUser}>manusia@uolinc.com</small>

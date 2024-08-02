@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 import Link from "next/link";
 import styles from "./LinksDePagamentos.module.scss";
 import { useState } from "react";
@@ -11,8 +12,7 @@ export default function LinksDePagamentos({ filter }) {
   const Products = useSelector((store) => store.products);
 
   const filteredProducts = Products?.filter((product) => {
-    const status =
-      filter.status === "todos" || product.status === filter.status;
+    const status = filter.status === "todos" || product.status === filter.status;
     const search = product.produto
       .toLowerCase()
       .includes(filter.search.toLowerCase());

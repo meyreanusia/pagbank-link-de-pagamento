@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState } from "react";
 import styles from "./menu.module.scss";
 import Link from "next/link";
@@ -65,7 +66,7 @@ const NavItem = ({ to, text, src, onclick, isSelected}) => (
   <li className={styles.navItem}>
     <Link href={to} className={styles.link} onClick={onclick}
      style={{ backgroundColor: isSelected ? "#F3F4F5" : "none" }} >
-      <img src={src} alt={src} className={styles.icon} />
+      <img src={src} alt={text} className={styles.icon} />
       {text}
     </Link>
   </li>

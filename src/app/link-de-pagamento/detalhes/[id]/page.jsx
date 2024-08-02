@@ -1,11 +1,12 @@
 "use client";
+import React from "react";
 import Title from "app/components/Title";
 import { useSelector } from "react-redux";
 import styles from './detalhes.module.scss';
 import NavBarDetalhes from "app/components/NavBarDetalhesProduto";
 
 
-export default function detalhesProduto({ params }) {
+export default function DetalhesProduto({ params }) {
 
   const { id } = params;
   const products = useSelector((store) => store.products);

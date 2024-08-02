@@ -1,4 +1,5 @@
 "use client";
+import React from "react"; 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Title from "app/components/Title";
@@ -62,7 +63,7 @@ export default function Inicio() {
       <form action="" className={styles.formNovoLink}>
         <div className={styles.novoLinkContainer}>
           <div className={styles.inputContainer}>
-            <label htmlFor="produto">O que vocês está vendendo?</label>
+            <label htmlFor="produto">O que você está vendendo?</label>
             <input
               type="text"
               placeholder="Produto ou serviço"

@@ -1,4 +1,5 @@
 // components/Modal.js
+import React from "react";
 import styles from "./Modal.module.scss";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -70,6 +71,7 @@ export default function Modal({ onClose, product, position }) {
   return (
     <div
       className={styles.modalOverlay}
+      data-testid="modalOverlay"
       onClick={handleOverlayClick}
       style={{ position: "fixed" }}
     >
